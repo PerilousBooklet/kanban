@@ -1,0 +1,8 @@
+# jdtls
+/.jdtls
+/kanban/.settings
+/kanban/.classpath
+/kanban/.project
+
+# Build
+/kanban/target
