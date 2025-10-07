@@ -19,7 +19,7 @@ import com.perilousbooklet.kanban.App;
  * Item
  */
 public class Item extends JPanel {
-
+	
 	// Logger
 	private static final Logger logger = Logger.getLogger(Item.class.getName());
 	
@@ -71,9 +71,9 @@ public class Item extends JPanel {
 	}
 	
 	// Unsupported Characters Check
-	public boolean isValidInput(String input) {
+	public static boolean isValidInput(String input) {
 		// TODO: check for excessive word length
-    return input.matches("[a-zA-Z0-9:,.\"\'?! ]+");
+    return input.matches("[a-zA-Z0-9:,.\"\'?! ]+#");
 	}
 	
 	/**

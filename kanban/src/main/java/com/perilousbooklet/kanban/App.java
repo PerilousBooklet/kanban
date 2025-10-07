@@ -13,6 +13,7 @@ import com.perilousbooklet.kanban.gui.Board;
 import com.perilousbooklet.kanban.gui.SideBar;
 import com.perilousbooklet.kanban.gui.SideBarItem;
 import com.perilousbooklet.kanban.gui.TopBar;
+import com.perilousbooklet.kanban.logic.MediatorGUI;
 
 /**
  * Main Class
@@ -31,6 +32,9 @@ public class App {
   public static final int screenWidth = (int) screenSize.getWidth();
   public static final int screenHeight = (int) screenSize.getHeight();
   public static final int flowMargin = 10;
+  
+  // GUI Components Communication
+  public static final MediatorGUI mediator = new MediatorGUI();
   
   // GUI Components
   public static JFrame frame = new JFrame("Kanban");
@@ -65,9 +69,6 @@ public class App {
     logger.info("SideBarItem added to SideBar.");
     panelSideBar.add(addBoardButton);
     logger.info("AddBoardButton added to SideBar.");
-    
-    panelBoard.add(addColumnButton);
-    logger.info("AddColumnButton added to Board.");
     
     frame.add(panelTopBar, BorderLayout.NORTH);
     logger.info("TopBar added to frame.");

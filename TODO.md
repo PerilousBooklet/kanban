@@ -1,13 +1,14 @@
-- [ ] WIP: complete Column (change title, delete)
-- [ ] WIP: complete Board (change title, delete)
+- [ ] WIP: change Item's font
 
 
+- [ ] TODO: show warning message when Item input string is invalid
 - [ ] TODO: make Board and Column scrollable
-- [ ] TODO: change Item's font
-- [ ] TODO: center horizontally addItemButton
+- [ ] TODO: make app window resizable
 - [ ] TODO: allow moving items between columns
 - [ ] TODO: allow switching position order of columns
-- [ ] TODO: make app window resizable
+- [ ] TODO: center horizontally addItemButton
+
+- [ ] TODO: complete Board (change title, delete)
 
 - [ ] TODO: add loading/unloading of Boards
 - [ ] TODO: data storage with JSON files
@@ -21,6 +22,7 @@
 
 
 
+- [x] Complete Column (change title, delete)
 - [x] Eccezioni e logs
 - [x] Aggiunta del meccanismo di eliminazione di Item
 - [x] Aggiungere un tema unificato all'interfaccia.
