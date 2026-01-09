@@ -3,7 +3,9 @@ package com.perilousbooklet.kanban.gui;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -25,8 +27,9 @@ public class Item extends JPanel {
 	
 	// Item content
 	private String text = "";
-	
+
 	// Word wrap logic
+	// TODO: check for excessive word length and split word
 	private List<String> wrapText(Graphics g, String text, int maxWidth) {
 		FontMetrics fm = g.getFontMetrics();
 		List<String> lines = new ArrayList<>();
@@ -52,13 +55,28 @@ public class Item extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		int panelWidth = getWidth();
+		
+		Graphics2D g2d = (Graphics2D) g;
+		
+		// Enable text anti-aliasing
+    g2d.setRenderingHint(
+    	RenderingHints.KEY_TEXT_ANTIALIASING,
+			RenderingHints.VALUE_TEXT_ANTIALIAS_ON
+		);
+    g2d.setRenderingHint(
+    	RenderingHints.KEY_ANTIALIASING,
+			RenderingHints.VALUE_ANTIALIAS_ON
+		);
+		
+		g2d.setFont(App.mainFont);
+		
+		int panelWidth = this.getWidth();
 		int x = 20;
 		int y = 25;
-		List<String> lines = wrapText(g, Item.this.text, panelWidth - 2 * x);
+		List<String> lines = wrapText(g2d, Item.this.text, panelWidth - 2 * x);
 		for (String line : lines) {
-			g.drawString(line, x, y);
-			y += g.getFontMetrics().getHeight();
+			g2d.drawString(line, x, y);
+			y += g2d.getFontMetrics().getHeight();
 		}
 	}
 	
@@ -72,8 +90,7 @@ public class Item extends JPanel {
 	
 	// Unsupported Characters Check
 	public static boolean isValidInput(String input) {
-		// TODO: check for excessive word length
-    return input.matches("[a-zA-Z0-9:,.\"\'?! ]+#");
+    return input.matches("[a-zA-Z0-9:,.\"\'?! ]+");
 	}
 	
 	/**
@@ -117,9 +134,16 @@ public class Item extends JPanel {
           if (e.getButton() == MouseEvent.BUTTON3) {
             // Confirm deletion
             Object[] options = { "Yes", "No" };
-            int n = JOptionPane.showOptionDialog(Item.this, "Delete this Item?", "Warning", 
-							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, 
-							options, options[0]);
+            int n = JOptionPane.showOptionDialog(
+							Item.this, 
+							"Delete this Item?", 
+							"Warning", 
+							JOptionPane.DEFAULT_OPTION, 
+							JOptionPane.WARNING_MESSAGE, 
+							null, 
+							options, 
+							options[0]
+						);
             // Delete the Item instance
             if (n == 0) {
             	column.getColumnContent().remove(Item.this);

@@ -23,7 +23,7 @@ public class Column extends JPanel {
 	private static final Logger logger = Logger.getLogger(MediatorGUI.class.getName());
   
   // ?
-  public static final Dimension columnSize = new Dimension(300, App.appHeight - App.panelSize.height - App.flowMargin * 10);
+  public static Dimension columnSize = new Dimension(300, App.appHeight - App.panelSize.height - App.flowMargin * 10 + 30);
   private JPanel columnContent;
   private ColumnTitle columnTitle;
   
@@ -55,8 +55,7 @@ public class Column extends JPanel {
     this.add(columnContent, BorderLayout.CENTER);
     
     // Create AddItemButton
-    AddItemButtonFactory addItemButtonFactory = new AddItemButtonFactory();
-    columnContent.add(addItemButtonFactory.createAddItemButton(Column.this));
+    columnContent.add(new AddItemButtonFactory().createAddItemButton(Column.this));
 
     // When clicked, send a message to the mediator
     this.addMouseListener(new MouseAdapter() {
@@ -77,7 +76,6 @@ public class Column extends JPanel {
     });
 	}
   
-	// ?
   public JPanel getColumnContent() {
     return columnContent;
   }

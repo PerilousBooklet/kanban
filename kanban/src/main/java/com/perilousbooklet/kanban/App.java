@@ -3,6 +3,7 @@ package com.perilousbooklet.kanban;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.util.logging.Logger;
 
@@ -29,9 +30,14 @@ public class App {
   
   public static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
   public static final Dimension panelSize = new Dimension(50, 50);
+  public static final Dimension columnSize = new Dimension(200, 200);
   public static final int screenWidth = (int) screenSize.getWidth();
   public static final int screenHeight = (int) screenSize.getHeight();
   public static final int flowMargin = 10;
+  
+  public static Font mainFont = new Font("SansSerif", Font.PLAIN, 14);
+  public static Font columnTitleFont = new Font("SansSerif", Font.PLAIN, 16);
+  public static Font topBarTitleFont = new Font("SansSerif", Font.PLAIN, 18);
   
   // GUI Components Communication
   public static final MediatorGUI mediator = new MediatorGUI();
@@ -80,7 +86,7 @@ public class App {
     //Display the window
     frame.pack();
     frame.setVisible(true);
-    frame.setResizable(false);
+    frame.setResizable(true);
     frame.setBounds((screenWidth/2 - appWidth/2), (screenHeight/2 - appHeight/2), appWidth, appHeight);
 	}
 	
@@ -88,13 +94,13 @@ public class App {
 	 * Main method
 	 */
 	public static void main(String args[]) {
-		// Schedule a job for the event-dispatching thread:
-    // creating and showing this application's UI.
-    javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				createAndShowUI();
-			}
-    });
+    javax.swing.SwingUtilities.invokeLater(
+      new Runnable() {
+        public void run() {
+          createAndShowUI();
+        }
+      }
+    );
 	}
 	
 }

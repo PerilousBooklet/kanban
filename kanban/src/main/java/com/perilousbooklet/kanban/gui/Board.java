@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.util.UUID;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -26,6 +27,9 @@ public class Board extends JPanel{
     
     // Board Properties
     FlowLayout layoutBoard = new FlowLayout(FlowLayout.LEADING, App.flowMargin, App.flowMargin);
+    // WIP: layout that allows auto-resize of columns
+    // BoxLayout layoutBoard = new BoxLayout(Board.this, BoxLayout.X_AXIS);
+    // layoutBoard.maximumLayoutSize();
     
     boardTitle.setVerticalAlignment(JLabel.CENTER);
     boardTitle.setFont(new Font("Serif", Font.PLAIN, 20));

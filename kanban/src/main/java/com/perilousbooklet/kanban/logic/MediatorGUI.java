@@ -32,6 +32,7 @@ public class MediatorGUI implements Mediator {
   // GUI Components Communication
   @Override
   public void notify(Component sender, String event) {
+    // TODO: use the switch instead
     // Board
     if ( sender == App.addBoardButton && "buttonClickedLMB".equals(event) ) {
       addBoard();
