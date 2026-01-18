@@ -11,18 +11,12 @@ import javax.swing.JPanel;
 import main.Main;
 import logic.AddColumnButtonFactory;
 
-/**
- * Board
- */
 public class Board extends JPanel{
   
   // ?
   public static JLabel boardTitle = new JLabel("Board 1");
   AddColumnButton addColumnButton;
   
-  /**
-	 * Default constructor
-	 */
   public Board() {
     
     // Board Properties

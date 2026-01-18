@@ -9,9 +9,6 @@ import javax.swing.JPanel;
 
 import main.Main;
 
-/**
- * Sidebar Item
- */
 public class SideBarItem extends JPanel {
   
   public SideBarItem() {

@@ -8,9 +8,6 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-/**
- * Button
- */
 public class AddButton extends JButton {
 	
 	// Logger
@@ -28,9 +25,6 @@ public class AddButton extends JButton {
     return input.matches("[a-zA-Z0-9 ]+");
 	}
 	
-	/**
-	 * Constructor
-	 */
 	public AddButton() {
 		
 		// Properties

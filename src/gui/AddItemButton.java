@@ -11,9 +11,6 @@ public class AddItemButton extends AddButton {
 	// Logger
 	private static final Logger logger = Logger.getLogger(AddItemButton.class.getName());
   
-  /**
-   * Constructor
-   */
   public AddItemButton(Column column) {
     super();
     

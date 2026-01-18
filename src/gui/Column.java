@@ -14,9 +14,6 @@ import main.Main;
 import logic.AddItemButtonFactory;
 import logic.MediatorGUI;
 
-/**
- * Column
- */
 public class Column extends JPanel {
   
   // Logger
@@ -30,9 +27,6 @@ public class Column extends JPanel {
   // GUI Components Communication
   private MediatorGUI mediator;
 	
-	/**
-	 * Default constructor
-	 */
 	public Column(String columnTitleText, MediatorGUI mediator, Board board) {
     // GUI Components Communication
     this.mediator = mediator;

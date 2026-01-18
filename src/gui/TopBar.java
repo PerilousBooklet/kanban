@@ -6,9 +6,6 @@ import javax.swing.JPanel;
 
 import main.Main;
 
-/**
- * Topbar
- */
 public class TopBar extends JPanel{
   
   private static final GridBagLayout layoutTopBar = new GridBagLayout();

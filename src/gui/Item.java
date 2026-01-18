@@ -17,9 +17,6 @@ import javax.swing.JPanel;
 
 import main.Main;
 
-/**
- * Item
- */
 public class Item extends JPanel {
 	
 	// Logger
@@ -93,9 +90,6 @@ public class Item extends JPanel {
     return input.matches("[a-zA-Z0-9:,.\"\'?! ]+");
 	}
 	
-	/**
-	 * Item constructor
-	 */
 	public Item(String text, Column column) {
 		
 		// Item properties
